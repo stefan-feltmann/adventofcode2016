@@ -51,7 +51,6 @@ def decompress(compressed):
     for i in output_array:
         for j in range(0, i[0]):
             output_string += i[1]
-    # print output_array
     print output_string
     print len(output_string)
 
@@ -111,31 +110,11 @@ def decompressV2(compressed, int_num=0):
         if '(' in local_temp:
             string_lent += decompressV2(compressed=local_temp, int_num = len(local_temp))
         else:
-            # print local_temp
             string_lent += len(local_temp)
-    # print output_array
     print string_lent
     return string_lent
-
-    # string_lent = len(output_string)
-    # if(string_lent == int_num):
-    #     print output_string
-    #     return string_lent
-    # else:
-    #     return decompressV2(compressed=output_string, int_num=string_lent)
-
-
-
-
-
 
 if __name__ == "__main__":
     f = open('day9.txt', 'r')
     input = f.read()
-    # decompress("ADVENT")
-    # decompress("A(1x5)BC")
-    # decompress("(3x3)XYZ")
-    # decompress("A(2x2)BCD(2x2)EFG")
-    # decompress("(6x1)(1x3)A")
-    # decompress("X(8x2)(3x3)ABCY")
     print decompressV2(input)
